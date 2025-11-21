@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const forecastContainer = document.getElementById('forecast-container');
     const forecastGrid = document.getElementById('forecast-grid');
 
+    // New element selectors
+    const uvIndex = document.getElementById('uv-index');
+    const sunrise = document.getElementById('sunrise');
+    const sunset = document.getElementById('sunset');
+    const pressure = document.getElementById('pressure');
+    const visibility = document.getElementById('visibility');
+
     searchButton.addEventListener('click', async () => {
         const city = cityInput.value;
         if (city) {
@@ -36,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     humidity.textContent = `${data.current.humidity}%`;
                     wind.textContent = `${data.current.wind_kph} km/h`;
                     feelsLike.textContent = `${data.current.feelslike_c}°C`;
+                    uvIndex.textContent = data.current.uv;
+                    pressure.textContent = `${data.current.pressure_mb} mb`;
+                    visibility.textContent = `${data.current.vis_km} km`;
                 } else {
                     resetUI();
                     alert('Weather data for the specified city is incomplete.');
@@ -59,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 forecastContainer.style.display = 'block';
                 forecastGrid.innerHTML = ''; // Clear previous forecast
+
+                if (data.length > 0 && data[0].astro) {
+                    sunrise.textContent = data[0].astro.sunrise;
+                    sunset.textContent = data[0].astro.sunset;
+                }
 
                 data.forEach(forecastDay => {
                     const day = new Date(forecastDay.date).toLocaleDateString('en-US', { weekday: 'short' });
@@ -94,6 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
         humidity.textContent = '';
         wind.textContent = '';
         feelsLike.textContent = '';
+        uvIndex.textContent = '';
+        sunrise.textContent = '';
+        sunset.textContent = '';
+        pressure.textContent = '';
+        visibility.textContent = '';
         forecastGrid.innerHTML = '';
     }
 });

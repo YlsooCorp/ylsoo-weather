@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     temperature.textContent = `${data.current.temp_c}°C`;
                     description.textContent = data.current.condition.text;
                 } else {
-                    alert(data.error.message);
+                    alert(data.error);
                 }
             } catch (error) {
                 console.error('Error fetching weather data:', error);

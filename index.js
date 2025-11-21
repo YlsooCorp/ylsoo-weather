@@ -29,8 +29,20 @@ app.get('/api/weather', async (req, res) => {
     const response = await axios.get(apiUrl);
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching weather data:', error);
-    res.status(500).json({ error: 'Failed to fetch weather data' });
+    // Log the full error for debugging
+    console.error('Error fetching weather data:', error.response ? error.response.data : error.message);
+    
+    // Default error message
+    let errorMessage = 'Failed to fetch weather data';
+    let statusCode = 500;
+
+    // If the error is from the weather API, use its message
+    if (error.response && error.response.data && error.response.data.error) {
+        errorMessage = error.response.data.error.message;
+        statusCode = error.response.status;
+    }
+    
+    res.status(statusCode).json({ error: errorMessage });
   }
 });
 

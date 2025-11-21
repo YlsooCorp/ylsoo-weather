@@ -1,45 +1,104 @@
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #fff;
 }
 
 .container {
-    text-align: center;
-}
-
-.weather-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    padding: 20px;
 }
 
-.weather-main {
+.weather-app-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#city-input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+#city-input::placeholder {
+    color: #eee;
+}
+
+#search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2575fc;
+    color: #fff;
+    cursor: pointer;
+}
+
+.weather-main h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.weather-main p {
+    font-size: 4rem;
+    margin: 10px 0;
+}
+
+.description-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #weather-icon {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+}
+
+#description {
+    font-size: 1.2rem;
+    margin-left: 10px;
 }
 
 .weather-details {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .detail {
     text-align: center;
+}
+
+.detail span {
+    font-size: 0.9rem;
+    color: #eee;
+}
+
+.detail p {
+    font-size: 1.2rem;
+    margin-top: 5px;
 }

@@ -6,33 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Weather App</h1>
-        <div class="search-container">
-            <input type="text" id="city-input" placeholder="Enter city">
-            <button id="search-button">Search</button>
-        </div>
-        <div class="weather-card">
-            <h2 id="city-name"></h2>
-            <div class="weather-main">
-                <img id="weather-icon" src="" alt="Weather Icon">
-                <p id="temperature"></p>
+        <div class="weather-app-wrapper">
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Enter city...">
+                <button id="search-button">Search</button>
             </div>
-            <p id="description"></p>
-            <div class="weather-details">
-                <div class="detail">
-                    <p>Humidity</p>
-                    <p id="humidity"></p>
+
+            <div class="weather-card" style="display: none;">
+                <div class="weather-main">
+                    <h2 id="city-name"></h2>
+                    <p id="temperature"></p>
+                    <div class="description-container">
+                        <img id="weather-icon" src="" alt="Weather Icon">
+                        <p id="description"></p>
+                    </div>
                 </div>
-                <div class="detail">
-                    <p>Wind</p>
-                    <p id="wind"></p>
-                </div>
-                <div class="detail">
-                    <p>Feels Like</p>
-                    <p id="feels-like"></p>
+
+                <div class="weather-details">
+                    <div class="detail">
+                        <span>Humidity</span>
+                        <p id="humidity"></p>
+                    </div>
+                    <div class="detail">
+                        <span>Wind</span>
+                        <p id="wind"></p>
+                    </div>
+                    <div class="detail">
+                        <span>Feels Like</span>
+                        <p id="feels-like"></p>
+                    </div>
                 </div>
             </div>
         </div>

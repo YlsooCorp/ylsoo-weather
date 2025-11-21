@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
 
                 if (response.ok) {
-                    cityName.textContent = data.name;
-                    temperature.textContent = `${Math.round(data.main.temp - 273.15)}°C`;
-                    description.textContent = data.weather[0].description;
+                    cityName.textContent = data.location.name;
+                    temperature.textContent = `${data.current.temp_c}°C`;
+                    description.textContent = data.current.condition.text;
                 } else {
-                    alert(data.error);
+                    alert(data.error.message);
                 }
             } catch (error) {
                 console.error('Error fetching weather data:', error);
